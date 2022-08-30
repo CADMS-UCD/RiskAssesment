@@ -10,7 +10,7 @@ output:
 
 # Introduction
 
-Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RRA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RRA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RRA using open access tools and how to develop a model that can be updated and used to estimate the risk of introduction of African swine fever into a particular region.
+Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RRA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RRA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RRA using open access tools and how to develop a model that can be updated and used to estimate the risk of introduction of African swine fever into a particular region.  
 
 
 ## Objectives
@@ -18,7 +18,7 @@ Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting
   - Familiarize with Rapid Risk assessment   
   - Develop a scenario tree for the incursion of ASF   
   - Identify critical control points.  
-  - 
+  - Implement the model using R.  
   
 ## Requisites
 
