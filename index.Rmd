@@ -39,11 +39,11 @@ An introduction to R and spatial data can be found in the following links:
 
 The workshop will consist on two parts, the first day we will cover the theory behind planing our model and the second day will be on the tools used to develop this.
 
-- **Thursday October 13, 2022**, Planing your model.
+- **Day 01**, Planing your model.
   - What is Rapid Risk Assessment?  
   - How to plan your model?  
   - What data is required?  
-- **Friday October 14, 2022**, Estimating the risk.   
+- **Day 02**, Estimating the risk.   
   - How to implement the model to estimate risk?  
   - Sensitivity analysis of the model.  
   - Scaling up the model.  

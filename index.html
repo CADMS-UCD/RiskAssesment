@@ -13,7 +13,7 @@
 
 <title>Home</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -146,11 +146,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -179,8 +183,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +192,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -384,7 +381,16 @@ div.tocify {
 <p><img src ="img/cadms-left.png" style="width:50%;position:center"></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RRA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RRA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RRA using open access tools and how to develop a model that can be updated and used to estimate the risk of introduction of African swine fever into a particular region.</p>
+<p>Rapid risk assessment (RRA) has been proven to be a valuable tool for
+supporting decision-making. In the context of transboundary animal
+diseases, RRA is critical for any disease control program to evaluate
+the risk of a potential introduction and identify areas where reinforced
+surveillance can have higher impact on reducing the risk. Although there
+are several tools available for RRA, many of these tools are not very
+accessible and can be time consuming to implement. In this workshop we
+will cover basics of RRA using open access tools and how to develop a
+model that can be updated and used to estimate the risk of introduction
+of African swine fever into a particular region.</p>
 <div id="objectives" class="section level2">
 <h2>Objectives</h2>
 <ul>
@@ -404,7 +410,8 @@ div.tocify {
 <ul>
 <li>Software we will use:
 <ul>
-<li><a href="https://cloud.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/">R studio</a>.</li>
+<li><a href="https://cloud.r-project.org/">R</a> and <a
+href="https://www.rstudio.com/products/rstudio/">R studio</a>.</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -413,7 +420,8 @@ div.tocify {
 </div>
 <div id="pre-workshop-materials" class="section level1">
 <h1>Pre-workshop materials</h1>
-<p>An introduction to R and spatial data can be found in the following links:</p>
+<p>An introduction to R and spatial data can be found in the following
+links:</p>
 <ul>
 <li><a href="Intro_to_R.html">Introduction to R</a></li>
 <li><a href="Spatial_intro">Spatial data in R</a></li>
@@ -421,9 +429,11 @@ div.tocify {
 </div>
 <div id="tentative-schedule" class="section level1">
 <h1>Tentative schedule</h1>
-<p>The workshop will consist on two parts, the first day we will cover the theory behind planing our model and the second day will be on the tools used to develop this.</p>
+<p>The workshop will consist on two parts, the first day we will cover
+the theory behind planing our model and the second day will be on the
+tools used to develop this.</p>
 <ul>
-<li><strong>Thursday October 13, 2022</strong>, Planing your model.
+<li><strong>Day 01</strong>, Planing your model.
 <ul>
 <li>What is Rapid Risk Assessment?<br />
 </li>
@@ -432,7 +442,7 @@ div.tocify {
 <li>What data is required?<br />
 </li>
 </ul></li>
-<li><strong>Friday October 14, 2022</strong>, Estimating the risk.
+<li><strong>Day 02</strong>, Estimating the risk.
 <ul>
 <li>How to implement the model to estimate risk?<br />
 </li>
